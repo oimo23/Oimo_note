@@ -1,0 +1,19 @@
+.DS_Store
+node_modules/
+dist/
+npm-debug.log
+yarn-error.log
+.firebase
+.firebaserc
+.firebase.json
+firestore.indexes.json
+firestore.rules
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+!dist/index.html
