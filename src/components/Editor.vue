@@ -34,23 +34,22 @@
 					</div>
 				</div>
 			</div>
+
 			<div id="modal-center" class="uk-flex-top" uk-modal>
 				<div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-
 					<button class="uk-modal-close-default" type="button" uk-close></button>
 
 					<p><input type="password" class="uk-input" value="" v-model="notepads.pass" placeholder="Input Password"></p>
 					<button class="uk-button uk-button-primary" @click="lockNotepad">OK</button>
-
 				</div>
 			</div>
+
 			<div class="editor">
 				<h1 class="logo">
 					<span><img src="~/../assets/logo.png" alt="OimoNote" width="300"></span>
 				</h1>
 				<div class="editor_text">
 					<textarea class="editor_textarea" id="editor_textarea" v-model="notepads.txt" placeholder="Simple Online notepad editor!" @keydown="changeWatch">
-						
 					</textarea>
 					<div class="align_right">
 						<p :class="{ active: hasSaved }" class="saved">Saved</p>

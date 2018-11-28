@@ -1,18 +1,6 @@
-# notepad
+## 概要
+Vue.jsとFirebaseによるオンラインメモ帳アプリ。  
+ログイン不要、パスワード機能、シェアURL機能  
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## デプロイ先
+https://oimo-note.net
