@@ -2,10 +2,10 @@
   <div class="pass">
     <p><img src="~/../assets/logo.png" alt="OimoNote" width="200"></p>
     <input type="password" class="uk-input" v-model="password" @change="emitChangePasswordInput" placeholder="Input Password">
-    <button class="pass_btn uk-button uk-button-primary" @click="emitCheckPass">OK</button>
     <div v-if="msg" class="alert">
       <p>{{ msg }}</p>
     </div>
+    <button class="pass_btn uk-button uk-button-primary" @click="emitCheckPass">OK</button>    
   </div>
 </template>
 
