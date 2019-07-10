@@ -1,13 +1,10 @@
 <template>
 	<div v-cloak>
-		<!-- ローディング中のとき表示 -->
-		<div v-if="loading">
-			<span>
-				<div class="loading"></div>
-			</span>
-		</div>
+		<Loading v-if="loading"/>
 
 		<!-- パスワードが掛かっているとき表示 -->
+		<Locked v-else-if="locked" :msg="this.msg1" @changePasswordInput="changePasswordInput"/>
+		<!--
 		<div v-else-if="locked" class="pass">
 			<p><img src="~/../assets/logo.png" alt="OimoNote" width="200"></p>
 			<input type="password" class="uk-input" v-model="notepads.pass" placeholder="Input Password">
@@ -16,24 +13,11 @@
 				<p>{{ msg1 }}</p>
 			</div>
 		</div>
+		-->
 		
 		<!-- それ以外 -->
 		<div v-else>
-			<div class="sidemenu">
-				<p class="burger_menu"><span uk-toggle="target: #offcanvas-nav-primary" uk-icon="icon:menu; ratio: 2"></span></p>
-				<div id="offcanvas-nav-primary" uk-offcanvas="overlay: true">
-					<div class="uk-offcanvas-bar uk-flex uk-flex-column">
-
-						<ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
-							<li class="uk-nav-header">Menu</li>
-							<li><router-link to="./" target="_blank"><span class="uk-margin-small-right" uk-icon="icon: pencil"></span> New</router-link></li>
-							<li><router-link :to="{name:'share',params:{id:this.notepads.shareid}}"  target="_blank"><span class="uk-margin-small-right" uk-icon="icon: users"></span> Share</router-link></li>
-							<li><a href="#modal-center" uk-toggle><span class="uk-margin-small-right" uk-icon="icon: lock"></span> Lock</a></li>
-						</ul>
-
-					</div>
-				</div>
-			</div>
+			<SideMenu :notepads="this.notepads"/>
 
 			<div id="modal-center" class="uk-flex-top" uk-modal>
 				<div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
@@ -62,8 +46,17 @@
 </template>
 
 <script>
+import SideMenu from "./SideMenu.vue";
+import Loading from "./Loading.vue";
+import Locked from "./Locked.vue";
+
 export default {
 	name: "editor",
+	components: {
+		SideMenu,
+		Loading,
+		Locked
+	},
 	created: function () {
 		// URLの最後の"/"以降を取得
 		let urlParam = location.pathname.replace("/","");
@@ -152,6 +145,14 @@ export default {
 			}, 2000);
 		},
 
+		// **********************************************
+		// 掛けようとしているパスワードを設定
+		// **********************************************
+		changePasswordInput: function(value) {
+			alert("triggerd")
+			this.$set(this.notepads, "pass", value);
+			alert("changed")
+		},
 		// **********************************************
 		// パスワードを掛ける
 		// **********************************************
@@ -311,50 +312,6 @@ textarea:focus {
 　　box-shadow: inset 0 0 0 2px #fff;
 }
 
-.loading,
-.loading::before,
-.loading::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border: 1px solid #303841;
-  border-left-color: #30384170;
-  -webkit-border-radius: 999px;
-  -moz-border-radius: 999px;
-  border-radius: 999px;
-}
-
-.loading {
-  margin: -25px 0 0 -25px;
-  height: 50px;
-  width: 50px;
-  -webkit-animation: animation-rotate 1000ms linear infinite;
-  -moz-animation: animation-rotate 1000ms linear infinite;
-  -o-animation: animation-rotate 1000ms linear infinite;
-  animation: animation-rotate 1000ms linear infinite;
-}
-
-.loading::before {
-  content: "";
-  margin: -23px 0 0 -23px;
-  height: 44px;
-  width: 44px;
-  -webkit-animation: animation-rotate 1000ms linear infinite;
-  -moz-animation: animation-rotate 1000ms linear infinite;
-  -o-animation: animation-rotate 1000ms linear infinite;
-  animation: animation-rotate 1000ms linear infinite;
-}
-
-.loading::after {
-  content: "";
-  margin: -29px 0 0 -29px;
-  height: 56px;
-  width: 56px;
-  -webkit-animation: animation-rotate 2000ms linear infinite;
-  -moz-animation: animation-rotate 2000ms linear infinite;
-  -o-animation: animation-rotate 2000ms linear infinite;
-  animation: animation-rotate 2000ms linear infinite;
-}
 
 .uk-offcanvas-bar {
 	background: #2B323A;
