@@ -1,0 +1,18 @@
+input[type=password] {
+	background: #313942;
+	color: #F5F5F5;
+}
+
+input[type=password]:focus {
+	outline: none;
+	border: none;
+	box-shadow: 0 0 13px #303841;
+}
+
+.alert p {
+	padding : 10px 20px;
+	margin-top : 20px;
+	transition: .3s;
+	color: rgb(234, 91, 55);
+	background: rgb(255, 233, 227);
+}
