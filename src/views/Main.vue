@@ -270,14 +270,6 @@ textarea:focus {
 	transition: 1s;
 }
 
-.alert p {
-	padding : 10px 20px;
-	margin-top : 20px;
-	transition: .3s;
-	color: rgb(234, 91, 55);
-	background: rgb(255, 233, 227);
-}
-
 .active {
 	display: inline-block;
 	animation: show 2s linear 0s;
@@ -302,7 +294,6 @@ textarea:focus {
 　　box-shadow: inset 0 0 0 2px #fff;
 }
 
-
 .uk-offcanvas-bar {
 	background: #2B323A;
 }
@@ -317,17 +308,6 @@ textarea:focus {
 	z-index: 9999;
 }
 
-input[type=password] {
-	background: #313942;
-	color: #F5F5F5;
-}
-
-input[type=password]:focus {
-	outline: none;
-	border: none;
-	box-shadow: 0 0 13px #303841;
-}
-
 .pass {
 	margin-top: -100px;
 
@@ -339,30 +319,6 @@ input[type=password]:focus {
 .pass_btn {
 	margin-top: 10px;
 	margin-bottom: -10px;
-}
-
-@-webkit-keyframes animation-rotate {
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-@-moz-keyframes animation-rotate {
-  100% {
-    -moz-transform: rotate(360deg);
-  }
-}
-
-@-o-keyframes animation-rotate {
-  100% {
-    -o-transform: rotate(360deg);
-  }
-}
-
-@keyframes animation-rotate {
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 @keyframes show{
