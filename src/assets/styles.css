@@ -4,6 +4,7 @@ input[type=password] {
 }
 
 input[type=password]:focus {
+    background: #313942;
 	outline: none;
 	border: none;
 	box-shadow: 0 0 13px #303841;
